@@ -40,5 +40,8 @@ public class VlcjInfoTest {
         System.out.printf("ID %d%n", video.integer("ID"));
         System.out.printf("Duration %s%n", video.duration("Duration"));
         System.out.printf("Frame rate %f%n", video.decimal("Frame rate"));
+
+        Section audio = mediaInfo.first("Audio");
+        System.out.printf("Duration Last Frame %s%n", audio.duration("Duration_LastFrame"));
     }
 }
