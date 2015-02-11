@@ -31,7 +31,7 @@ final class Conversions {
     /**
      *
      */
-    private static final Pattern INTEGER_PATTERN = Pattern.compile("([\\d\\s]+)(?: \\w+)?");
+    private static final Pattern INTEGER_PATTERN = Pattern.compile("(\\-?[\\d\\s]+)(?:\\s?\\w+)?");
 
     /**
      *
@@ -41,7 +41,7 @@ final class Conversions {
     /**
      *
      */
-    private static final Pattern DURATION_PATTERN = Pattern.compile("(?:(\\d+)h)?\\s?(?:(\\d+)mn)?\\s?(?:(\\d+)s)?\\s?(?:(\\d+)ms)?");
+    private static final Pattern DURATION_PATTERN = Pattern.compile("(?:(\\-?\\d+)h)?\\s?(?:(\\-?\\d+)mn)?\\s?(?:(\\-?\\d+)s)?\\s?(?:(\\-?\\d+)ms)?");
 
     /**
      *
