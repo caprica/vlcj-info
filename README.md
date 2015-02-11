@@ -42,7 +42,7 @@ Usage is trivial:
 MediaInfo mediaInfo = MediaInfo.mediaInfo("/home/movies/A-Cool-Movie.mp4");
 ```
 
-You can then query the return media info instance for general information, audio, video and SPU
+You can then query the returned media info instance for general information, audio, video and SPU
 tracks and so on.
 
 License
