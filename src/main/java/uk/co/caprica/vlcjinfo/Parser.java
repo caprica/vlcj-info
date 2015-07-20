@@ -95,8 +95,25 @@ final class Parser {
                             parseState = ParseState.NEXT_SECTION;
                         }
                         else {
+                            // Quick fix for value that has multiple colon(:)
                             String[] values = line.split(":");
-                            section.put(values[0].trim(), values[1].trim());
+
+                            assert section != null;
+
+                            if (values.length > 2) {
+                                StringBuilder sb = new StringBuilder();
+                                String finalValue;
+
+                                for (int x = 1; x < values.length; x++) {
+                                    sb.append(values[x].trim()).append(":");
+                                }
+
+                                finalValue = sb.toString();
+
+                                section.put(values[0].trim(), finalValue.substring(0, finalValue.length() - 1));
+                            } else {
+                                section.put(values[0].trim(), values[1].trim());
+                            }
                         }
                         break;
                     default:
