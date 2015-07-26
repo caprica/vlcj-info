@@ -24,36 +24,36 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * Encapsulation of datatype conversions.
  */
 final class Conversions {
 
     /**
-     *
+     * Regular expression pattern to extract an integer value.
      */
     private static final Pattern INTEGER_PATTERN = Pattern.compile("(\\-?[\\d\\s]+)(?:\\s?\\w+)?");
 
     /**
-     *
+     * Regular expression pattern to extract a decimal value.
      */
     private static final Pattern DECIMAL_PATTERN = Pattern.compile("(\\d+\\.\\d+)(?: \\w+)?");
 
     /**
-     *
+     * Regular expression pattern to extract a duration value.
      */
     private static final Pattern DURATION_PATTERN = Pattern.compile("(?:(\\-?\\d+)h)?\\s?(?:(\\-?\\d+)mn)?\\s?(?:(\\-?\\d+)s)?\\s?(?:(\\-?\\d+)ms)?");
 
     /**
-     *
+     * Prevent direct instantiation by others.
      */
     private Conversions() {
     }
 
     /**
+     * Convert a string to an integer.
      *
-     *
-     * @param key
-     * @return
+     * @param value value to convert
+     * @return converted value, or <code>null</code> if the supplied value was <code>null</code>
      */
     static Integer integer(String value) {
         Integer result;
@@ -73,10 +73,10 @@ final class Conversions {
     }
 
     /**
+     * Convert a string to a big decimal.
      *
-     *
-     * @param value
-     * @return
+     * @param value value to convert
+     * @return converted value, or <code>null</code> if the supplied value was <code>null</code>
      */
     static BigDecimal decimal(String value) {
         BigDecimal result;
@@ -96,10 +96,10 @@ final class Conversions {
     }
 
     /**
+     * Convert a string to a duration.
      *
-     *
-     * @param value
-     * @return
+     * @param value value to convert
+     * @return converted value, or <code>null</code> if the supplied value was <code>null</code>
      */
     static Duration duration(String value) {
         Duration result;

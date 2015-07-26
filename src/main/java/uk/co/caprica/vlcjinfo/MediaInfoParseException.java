@@ -20,15 +20,15 @@
 package uk.co.caprica.vlcjinfo;
 
 /**
- *
+ * Exception thrown if the media information could not be parsed.
  */
 public final class MediaInfoParseException extends RuntimeException {
 
     /**
+     * Create an exception.
      *
-     *
-     * @param message
-     * @param cause
+     * @param message exception message
+     * @param cause root cause of the exception
      */
     public MediaInfoParseException(String message, Throwable cause) {
         super(message, cause);

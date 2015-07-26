@@ -25,17 +25,17 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
+ * Encapsulation of one or more sections.
  */
 public final class Sections implements Iterable<Section> {
 
     /**
-     *
+     * List of sections.
      */
     private final List<Section> sections = new ArrayList<Section>();
 
     /**
-     *
+     * Create, and add, a new empty section.
      *
      * @return
      */
@@ -46,18 +46,18 @@ public final class Sections implements Iterable<Section> {
     }
 
     /**
+     * Get the list of sections.
      *
-     *
-     * @return
+     * @return sections list, unmodifiable
      */
     public List<Section> sections() {
         return Collections.unmodifiableList(sections);
     }
 
     /**
+     * Get the first section.
      *
-     *
-     * @return
+     * @return section
      */
     public Section first() {
         return sections.get(0);

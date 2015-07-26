@@ -31,12 +31,12 @@ import com.sun.jna.Pointer;
 import com.sun.jna.WString;
 
 /**
- *
+ * Factory class that creates and parses media information.
  */
 public final class MediaInfo {
 
     /**
-     *
+     * Map of sections keyed by their type name.
      */
     private final Map<String,Sections> sectionsByType = new LinkedHashMap<String,Sections>();
 
@@ -113,7 +113,7 @@ public final class MediaInfo {
      * <p>
      * This should only be used for debugging purposes.
      *
-     * @param writer
+     * @param writer writer to dump the media information to
      */
     public void dump(Writer writer) {
         PrintWriter printer = new PrintWriter(writer);

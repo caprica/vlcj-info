@@ -24,14 +24,34 @@ package uk.co.caprica.vlcjinfo;
  */
 public class Duration {
 
+    /**
+     * Number of hours.
+     */
     private final int hours;
 
+    /**
+     * Number of minutes.
+     */
     private final int minutes;
 
+    /**
+     * Number of seconds.
+     */
     private final int seconds;
 
+    /**
+     * Number of milliseconds.
+     */
     private final int millis;
 
+    /**
+     * Create a duration.
+     *
+     * @param hours number of hours
+     * @param minutes number of minutes
+     * @param seconds number of seconds
+     * @param millis number of milliseconds
+     */
     public Duration(int hours, int minutes, int seconds, int millis) {
         this.hours = hours;
         this.minutes = minutes;
@@ -39,22 +59,47 @@ public class Duration {
         this.millis = millis;
     }
 
+    /**
+     * Get the number of hours.
+     *
+     * @return hours
+     */
     public int hours() {
         return hours();
     }
 
+    /**
+     * Get the number of minutes.
+     *
+     * @return minutes
+     */
     public int minutes() {
         return minutes;
     }
 
+    /**
+     * Get the number of seconds.
+     *
+     * @return seconds
+     */
     public int seconds() {
         return seconds;
     }
 
+    /**
+     * Get the number of milliseconds.
+     *
+     * @return milliseconds
+     */
     public int millis() {
         return millis;
     }
 
+    /**
+     * Get the duration as a number of milliseconds.
+     *
+     * @return this duration as a number of milliseconds
+     */
     public long asMilliSeconds() {
         return (((((hours * 60) + minutes) * 60) + seconds) * 1000) + millis;
     }
