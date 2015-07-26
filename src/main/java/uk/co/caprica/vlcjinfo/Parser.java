@@ -95,7 +95,7 @@ final class Parser {
                             parseState = ParseState.NEXT_SECTION;
                         }
                         else {
-                            String[] values = line.split(":");
+                            String[] values = line.split(":", 2);
                             section.put(values[0].trim(), values[1].trim());
                         }
                         break;
