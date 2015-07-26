@@ -22,7 +22,7 @@ Add the following Maven dependency to your own project pom.xml:
 News
 ----
 
-??/??/2015 First release at [Maven Central](http://search.maven.org/#search|ga|1|vlcj-info).
+26/07/2015 First release at [Maven Central](http://search.maven.org/#search|ga|1|vlcj-info).
 
 Documentation
 -------------
