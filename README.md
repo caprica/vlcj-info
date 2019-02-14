@@ -15,14 +15,17 @@ Add the following Maven dependency to your own project pom.xml:
 <dependency>
     <groupId>uk.co.caprica</groupId>
     <artifactId>vlcj-info</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
 News
 ----
 
-26/07/2015 First release at [Maven Central](http://search.maven.org/#search|ga|1|vlcj-info).
+14/02/2019 Minor update release (updates dependency versions) at
+[Maven Central](http://search.maven.org/#search|ga|1|vlcj-info).
+
+26/07/2015 First release.
 
 Documentation
 -------------
@@ -31,7 +34,7 @@ The vlcj-info project page is at [github](http://caprica.github.com/vlcj-info "v
 
 Online Javadoc is available:
 
-* [1.0.0 (current)](http://caprica.github.com/vlcj-info/javadoc/1.0.0/index.html "1.0.0 Javadoc")
+* [1.0.2 (current)](http://caprica.github.com/vlcj-info/javadoc/1.0.2/index.html "1.0.2 Javadoc")
 
 Basic Usage
 -----------
