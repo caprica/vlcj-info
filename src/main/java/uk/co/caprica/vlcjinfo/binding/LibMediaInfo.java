@@ -30,7 +30,7 @@ import com.sun.jna.WString;
  */
 public interface LibMediaInfo extends Library {
 
-    LibMediaInfo INSTANCE = (LibMediaInfo) Native.loadLibrary(Platform.isWindows() ? "MediaInfo" : "mediainfo", LibMediaInfo.class);
+    LibMediaInfo INSTANCE = Native.load(Platform.isWindows() ? "MediaInfo" : "mediainfo", LibMediaInfo.class);
 
     Pointer MediaInfo_New();
 
