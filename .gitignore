@@ -5,3 +5,5 @@ pom.xml.versionsBackup
 pom.xml.next
 release.properties
 /bin/
+*.iml
+.idea
