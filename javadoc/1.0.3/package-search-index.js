@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"uk.co.caprica.vlcjinfo"},{"l":"uk.co.caprica.vlcjinfo.binding"}]
