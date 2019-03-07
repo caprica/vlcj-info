@@ -32,6 +32,10 @@ import com.sun.jna.WString;
 
 /**
  * Factory class that creates and parses media information.
+ * <p>
+ * This class opens the file, parses the data in bulk, and closes the file.
+ * <p>
+ * See {@link MediaInfoFile} for more fine-grained access.
  */
 public final class MediaInfo {
 

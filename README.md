@@ -15,17 +15,15 @@ Add the following Maven dependency to your own project pom.xml:
 <dependency>
     <groupId>uk.co.caprica</groupId>
     <artifactId>vlcj-info</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 
 News
 ----
 
-14/02/2019 Minor update release (updates dependency versions) at
+7th March, 2019 - add API to get individual piece of information from the media file
 [Maven Central](http://search.maven.org/#search|ga|1|vlcj-info).
-
-26/07/2015 First release.
 
 Documentation
 -------------
@@ -34,7 +32,7 @@ The vlcj-info project page is at [github](http://caprica.github.com/vlcj-info "v
 
 Online Javadoc is available:
 
-* [1.0.2 (current)](http://caprica.github.com/vlcj-info/javadoc/1.0.2/index.html "1.0.2 Javadoc")
+* [1.0.3 (current)](http://caprica.github.com/vlcj-info/javadoc/1.0.3/index.html "1.0.3 Javadoc")
 
 Basic Usage
 -----------
@@ -43,10 +41,32 @@ Usage is trivial:
 
 ```
 MediaInfo mediaInfo = MediaInfo.mediaInfo("/home/movies/A-Cool-Movie.mp4");
+Section video = mediaInfo.first("Video");
+Integer width = video.integer("Width");
+Integer height = video.integer("Height");
 ```
 
 You can then query the returned media info instance for general information, audio, video and SPU
 tracks and so on.
+
+The previous example extracts the media information en masse, you can use an alternate API to pick
+out the particular pieces of information you require (and optionally specify its formatting):
+
+```
+MediaInfoFile file = new MediaInfoFile("test.mp4");
+if (file.open()) {
+    System.out.println(file.info("Video;%Duration%"));
+    System.out.println(file.info("Video;%Duration/String3%"));
+    System.out.println(file.info("General;%Duration%"));
+    file.close();
+}
+```
+
+The values used when picking out information in this way are the exact same as used by the
+MediaInfo tool itself.
+
+Generally the values are `String` values that must be parsed. Since you can specify the formatting
+it is up to you to parse those values as required.
 
 License
 -------

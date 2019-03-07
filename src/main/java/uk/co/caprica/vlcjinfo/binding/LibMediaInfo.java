@@ -40,5 +40,8 @@ public interface LibMediaInfo extends Library {
 
     void MediaInfo_Close(Pointer handle);
 
+    WString MediaInfo_Option(Pointer handle, WString parameter, WString value);
+
     WString MediaInfo_Inform(Pointer handle);
+
 }

@@ -22,7 +22,7 @@ package uk.co.caprica.vlcjinfo;
 /**
  * Encapsulation of a duration.
  */
-public class Duration {
+public final class Duration {
 
     /**
      * Number of hours.
@@ -43,6 +43,19 @@ public class Duration {
      * Number of milliseconds.
      */
     private final int millis;
+
+    /**
+     * Create a new duration.
+     * <p>
+     * An attempt will be made to parse the supplied value string and create a duration instance from it.
+     *
+     * @param value value
+     * @return duration
+     * @throws IllegalArgumentException if the supplied value string could not be parsed
+     */
+    public static Duration duration(String value) {
+        return Conversions.duration(value);
+    }
 
     /**
      * Create a duration.

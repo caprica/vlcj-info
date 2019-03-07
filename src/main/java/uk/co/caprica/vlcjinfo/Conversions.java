@@ -41,7 +41,7 @@ final class Conversions {
     /**
      * Regular expression pattern to extract a duration value.
      */
-    private static final Pattern DURATION_PATTERN = Pattern.compile("(?:(\\-?\\d+)h)?\\s?(?:(\\-?\\d+)mn)?\\s?(?:(\\-?\\d+)s)?\\s?(?:(\\-?\\d+)ms)?");
+    private static final Pattern DURATION_PATTERN = Pattern.compile("(?:(\\-?\\d+)\\s*h)?\\s*(?:(\\-?\\d+)\\s*m(?:in)?)?\\s*(?:(\\-?\\d+)\\s*s)?\\s*(?:(\\-?\\d+)\\s*ms)?");
 
     /**
      * Prevent direct instantiation by others.
@@ -54,19 +54,19 @@ final class Conversions {
      *
      * @param value value to convert
      * @return converted value, or <code>null</code> if the supplied value was <code>null</code>
+     * @throws IllegalArgumentException if the supplied value could not be parsed
      */
     static Integer integer(String value) {
         Integer result;
         if (value != null) {
+            value = value.trim();
             Matcher matcher = INTEGER_PATTERN.matcher(value);
             if (matcher.matches()) {
                 result = Integer.parseInt(matcher.group(1).replace(" ", ""));
+            } else {
+                throw new IllegalArgumentException("Unknown format for value: " + value);
             }
-            else {
-                result = null;
-            }
-        }
-        else {
+        } else {
             result = null;
         }
         return result;
@@ -77,19 +77,19 @@ final class Conversions {
      *
      * @param value value to convert
      * @return converted value, or <code>null</code> if the supplied value was <code>null</code>
+     * @throws IllegalArgumentException if the supplied value could not be parsed
      */
     static BigDecimal decimal(String value) {
         BigDecimal result;
         if (value != null) {
+            value = value.trim();
             Matcher matcher = DECIMAL_PATTERN.matcher(value);
             if (matcher.matches()) {
                 result = new BigDecimal(matcher.group(1));
+            } else {
+                throw new IllegalArgumentException("Unknown format for value: " + value);
             }
-            else {
-                result = null;
-            }
-        }
-        else {
+        } else {
             result = null;
         }
         return result;
@@ -100,10 +100,12 @@ final class Conversions {
      *
      * @param value value to convert
      * @return converted value, or <code>null</code> if the supplied value was <code>null</code>
+     * @throws IllegalArgumentException if the supplied value could not be parsed
      */
     static Duration duration(String value) {
         Duration result;
         if (value != null) {
+            value = value.trim();
             Matcher matcher = DURATION_PATTERN.matcher(value);
             if (matcher.matches()) {
                 int hours = matcher.group(1) != null ? Integer.parseInt(matcher.group(1)) : 0;
@@ -111,12 +113,10 @@ final class Conversions {
                 int seconds = matcher.group(3) != null ? Integer.parseInt(matcher.group(3)) : 0;
                 int millis = matcher.group(4) != null ? Integer.parseInt(matcher.group(4)) : 0;
                 result = new Duration(hours, minutes, seconds, millis);
+            } else {
+                throw new IllegalArgumentException("Unknown format for value: " + value);
             }
-            else {
-                result = null;
-            }
-        }
-        else {
+        } else {
             result = null;
         }
         return result;
