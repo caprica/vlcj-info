@@ -24,7 +24,7 @@
 
     <groupId>uk.co.caprica</groupId>
     <artifactId>vlcj-info</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
 
     <description>Minimal Java framework to extract media information using the native MediaInfo tool.</description>
 
