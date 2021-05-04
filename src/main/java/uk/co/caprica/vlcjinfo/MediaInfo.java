@@ -59,6 +59,10 @@ public final class MediaInfo {
             try {
                 int opened = lib.MediaInfo_Open(handle, new WString(filename));
                 if (opened == 1) {
+                    // We must explicitly set the empty string here to get the default formatting - this is for the
+                    // situation where something else has set an output format option (such options are apparently set
+                    // globally, and are not scoped to the native handle)
+                    lib.MediaInfo_Option(handle, new WString("Inform"), new WString(""));
                     WString data = lib.MediaInfo_Inform(handle);
                     lib.MediaInfo_Close(handle);
                     result = new Parser(data.toString()).parse();
