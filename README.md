@@ -15,12 +15,14 @@ Add the following Maven dependency to your own project pom.xml:
 <dependency>
     <groupId>uk.co.caprica</groupId>
     <artifactId>vlcj-info</artifactId>
-    <version>1.0.3</version>
+    <version>2.0.1</version>
 </dependency>
 ```
 
 News
 ----
+
+4th May, 2021 - release 2.0.1, fixes an issue when using custom formatting options (or using MediaInfo after using MediaFile)
 
 7th March, 2019 - add API to get individual piece of information from the media file
 [Maven Central](http://search.maven.org/#search|ga|1|vlcj-info).
@@ -29,10 +31,6 @@ Documentation
 -------------
 
 The vlcj-info project page is at [github](http://caprica.github.com/vlcj-info "vlcj-info at github").
-
-Online Javadoc is available:
-
-* [1.0.3 (current)](http://caprica.github.com/vlcj-info/javadoc/1.0.3/index.html "1.0.3 Javadoc")
 
 Basic Usage
 -----------
