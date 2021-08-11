@@ -78,7 +78,7 @@ public final class Duration {
      * @return hours
      */
     public int hours() {
-        return hours();
+        return hours;
     }
 
     /**
