@@ -15,12 +15,14 @@ Add the following Maven dependency to your own project pom.xml:
 <dependency>
     <groupId>uk.co.caprica</groupId>
     <artifactId>vlcj-info</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
 </dependency>
 ```
 
 News
 ----
+
+11th August, 2021 - release 2.0.2, fixes an infinite recursion issue in Duration#hours()
 
 4th May, 2021 - release 2.0.1, fixes an issue when using custom formatting options (or using MediaInfo after using MediaFile)
 
