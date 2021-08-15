@@ -63,6 +63,7 @@ public final class MediaInfo {
                     // situation where something else has set an output format option (such options are apparently set
                     // globally, and are not scoped to the native handle)
                     lib.MediaInfo_Option(handle, new WString("Inform"), new WString(""));
+                    lib.MediaInfo_Option(handle, new WString("Complete"), new WString("1"));
                     WString data = lib.MediaInfo_Inform(handle);
                     lib.MediaInfo_Close(handle);
                     result = new Parser(data.toString()).parse();
@@ -130,7 +131,7 @@ public final class MediaInfo {
             for (Section section : sectionsByType.get(sectionType)) {
                 printer.printf("%s [%d]%n", sectionType, sectionNumber++);
                 for (String key : section) {
-                    printer.printf(" %30s -> %s%n", key, section.value(key));
+                    printer.printf(" %35s -> %s%n", key, section.value(key));
                 }
             }
             printer.println();
