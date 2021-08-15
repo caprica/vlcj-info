@@ -41,7 +41,8 @@ final class Conversions {
     /**
      * Regular expression pattern to extract a duration value.
      */
-    private static final Pattern DURATION_PATTERN = Pattern.compile("(?:(\\-?\\d+)\\s*h)?\\s*(?:(\\-?\\d+)\\s*m(?:in)?)?\\s*(?:(\\-?\\d+)\\s*s)?\\s*(?:(\\-?\\d+)\\s*ms)?");
+    private static final Pattern DURATION_PATTERN_1 = Pattern.compile("(?:(\\d{2}):(\\d{2}):(\\d{2})\\.(\\d{3}))(\\s.*)?");
+    private static final Pattern DURATION_PATTERN_2 = Pattern.compile("(?:(\\-?\\d+)\\s*h)?\\s*(?:(\\-?\\d+)\\s*m(?:in)?)?\\s*(?:(\\-?\\d+)\\s*s)?\\s*(?:(\\-?\\d+)\\s*ms)?");
 
     /**
      * Prevent direct instantiation by others.
@@ -103,24 +104,31 @@ final class Conversions {
      * @throws IllegalArgumentException if the supplied value could not be parsed
      */
     static Duration duration(String value) {
-        Duration result;
         if (value != null) {
             value = value.trim();
-            Matcher matcher = DURATION_PATTERN.matcher(value);
-            if (matcher.matches()) {
-                int hours = matcher.group(1) != null ? Integer.parseInt(matcher.group(1)) : 0;
-                int minutes = matcher.group(2) != null ? Integer.parseInt(matcher.group(2)) : 0;
-                int seconds = matcher.group(3) != null ? Integer.parseInt(matcher.group(3)) : 0;
-                int millis = matcher.group(4) != null ? Integer.parseInt(matcher.group(4)) : 0;
-                result = new Duration(hours, minutes, seconds, millis);
-            } else {
-                throw new IllegalArgumentException("Unknown format for value: " + value);
+            Duration duration;
+            duration = tryDuration(value, DURATION_PATTERN_1);
+            if (duration != null) {
+                return duration;
             }
-        } else {
-            result = null;
+            duration = tryDuration(value, DURATION_PATTERN_2);
+            if (duration != null) {
+                return duration;
+            }
+            throw new IllegalArgumentException("Unknown format for value: " + value);
         }
-        return result;
+        return null;
     }
 
-    // FIXME UTC date?
+    private static Duration tryDuration(String value, Pattern pattern) {
+        Matcher matcher = pattern.matcher(value);
+        if (matcher.matches()) {
+            int hours = matcher.group(1) != null ? Integer.parseInt(matcher.group(1)) : 0;
+            int minutes = matcher.group(2) != null ? Integer.parseInt(matcher.group(2)) : 0;
+            int seconds = matcher.group(3) != null ? Integer.parseInt(matcher.group(3)) : 0;
+            int millis = matcher.group(4) != null ? Integer.parseInt(matcher.group(4)) : 0;
+            return new Duration(hours, minutes, seconds, millis);
+        }
+        return null;
+    }
 }
