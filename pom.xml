@@ -18,7 +18,7 @@
 
     <groupId>uk.co.caprica</groupId>
     <artifactId>vlcj-info</artifactId>
-    <version>2.0.3</version>
+    <version>2.0.4-SNAPSHOT</version>
 
     <name>vlcj info</name>
     <description>Minimal Java framework to extract media information using the native MediaInfo tool.</description>
@@ -66,7 +66,7 @@
         <connection>scm:git:git@github.com:caprica/vlcj-info.git</connection>
         <developerConnection>scm:git:git@github.com:caprica/vlcj-info.git</developerConnection>
         <url>git@github.com:caprica/vlcj-info.git</url>
-        <tag>vlcj-info-2.0.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
