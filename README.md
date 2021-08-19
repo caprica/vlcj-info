@@ -21,7 +21,7 @@ Add the following Maven dependency to your own project pom.xml:
 
 News
 ----
-15th August, 2021 - release 2.0.3, return all available date from the native library (set the "complete" flag)
+15th August, 2021 - release 2.0.3, return all available data from the native library (set the "complete" flag)
 
 11th August, 2021 - release 2.0.2, fixes an infinite recursion issue in Duration#hours()
 
