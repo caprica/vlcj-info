@@ -90,6 +90,10 @@ public final class Section implements Iterable<String> {
         return Conversions.duration(value(key));
     }
 
+    public Map<String, String> getValues() {
+        return values;
+    }
+
     @Override
     public Iterator<String> iterator() {
         return values.keySet().iterator();

@@ -144,6 +144,10 @@ public final class MediaInfo {
         }
     }
 
+    public Map<String, Sections> getSections() {
+        return sectionsByType;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(100);
