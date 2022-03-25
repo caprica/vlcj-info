@@ -98,6 +98,15 @@ public final class MediaInfo {
     }
 
     /**
+     * Get all of the sections
+     *
+     * @return Map of all sections with the type as key type
+     */
+    public Map<String, Sections> sections() {
+        return sectionsByType;
+    }
+
+    /**
      * Get the first section of a particular type.
      *
      * @param type section type
@@ -142,10 +151,6 @@ public final class MediaInfo {
         catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public Map<String, Sections> getSections() {
-        return sectionsByType;
     }
 
     @Override

@@ -61,6 +61,15 @@ public final class Section implements Iterable<String> {
     }
 
     /**
+     * Get all values fr a Section
+     *
+     * @return Map of key/value attributes for a Section
+     */
+    public Map<String, String> values() {
+        return values;
+    }
+
+    /**
      * Get an integer value for a particular key.
      *
      * @param key key to get the value for
@@ -88,10 +97,6 @@ public final class Section implements Iterable<String> {
      */
     public Duration duration(String key) {
         return Conversions.duration(value(key));
-    }
-
-    public Map<String, String> getValues() {
-        return values;
     }
 
     @Override
