@@ -98,7 +98,7 @@ public final class MediaInfo {
     }
 
     /**
-     * Get all of the sections
+     * Get all of the sections.
      *
      * @return Map of all sections with the type as key type
      */

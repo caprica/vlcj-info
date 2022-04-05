@@ -61,7 +61,7 @@ public final class Section implements Iterable<String> {
     }
 
     /**
-     * Get all values for a Section
+     * Get all values for a Section.
      *
      * @return map of key/value attributes for a Section
      */
