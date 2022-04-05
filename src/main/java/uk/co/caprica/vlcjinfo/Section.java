@@ -61,9 +61,9 @@ public final class Section implements Iterable<String> {
     }
 
     /**
-     * Get all values fr a Section
+     * Get all values for a Section
      *
-     * @return Map of key/value attributes for a Section
+     * @return map of key/value attributes for a Section
      */
     public Map<String, String> values() {
         return values;
@@ -90,7 +90,7 @@ public final class Section implements Iterable<String> {
     }
 
     /**
-     * Get an duration value for a particular key.
+     * Get a duration value for a particular key.
      *
      * @param key key to get the value for
      * @return duration value, or <code>null</code> if the key is not in the section
