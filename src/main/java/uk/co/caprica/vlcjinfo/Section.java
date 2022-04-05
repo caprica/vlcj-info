@@ -20,6 +20,7 @@
 package uk.co.caprica.vlcjinfo;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -48,6 +49,15 @@ public final class Section implements Iterable<String> {
      */
     void put(String key, String value) {
         values.put(key, value);
+    }
+
+    /**
+     * Get all values for a section.
+     *
+     * @return map of all key/value attributes for a section
+     */
+    public Map<String, String> values() {
+        return Collections.unmodifiableMap(values);
     }
 
     /**
@@ -81,7 +91,7 @@ public final class Section implements Iterable<String> {
     }
 
     /**
-     * Get an duration value for a particular key.
+     * Get a duration value for a particular key.
      *
      * @param key key to get the value for
      * @return duration value, or <code>null</code> if the key is not in the section

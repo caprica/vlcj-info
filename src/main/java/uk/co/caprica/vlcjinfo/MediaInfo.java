@@ -22,6 +22,7 @@ package uk.co.caprica.vlcjinfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -29,6 +30,8 @@ import uk.co.caprica.vlcjinfo.binding.LibMediaInfo;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.WString;
+
+import static java.util.Collections.unmodifiableMap;
 
 /**
  * Factory class that creates and parses media information.
@@ -80,6 +83,15 @@ public final class MediaInfo {
             result = null;
         }
         return result;
+    }
+
+    /**
+     * Get all of the sections.
+     *
+     * @return map of all sections, keyed by section type
+     */
+    public Map<String, Sections> sections() {
+        return unmodifiableMap(sectionsByType);
     }
 
     /**
